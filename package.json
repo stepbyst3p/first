@@ -10,5 +10,8 @@
     "url": "git+https://github.com/stepbyst3p/first.git"
   },
   "author": "ivesergeev@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
 }

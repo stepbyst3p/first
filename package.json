@@ -1,8 +1,7 @@
 {
   "name": "first",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "First frontend project by Ivan",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,9 +10,5 @@
     "url": "git+https://github.com/stepbyst3p/first.git"
   },
   "author": "ivesergeev@gmail.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/stepbyst3p/first/issues"
-  },
-  "homepage": "https://github.com/stepbyst3p/first#readme"
+  "license": "ISC"
 }

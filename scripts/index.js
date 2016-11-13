@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloMessage from './components/HelloMessage';
+import AddPlayerForm from './components/AddPlayerForm';
 
-const appRoot = document.getElementById('application-root');
-
-
-
-ReactDOM.render(<HelloMessage name="Jane" />, appRoot);
+ReactDOM.render(
+	<AddPlayerForm />,
+	document.getElementById('application-root')
+);

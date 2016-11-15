@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AddPlayerForm from './components/AddPlayerForm';
+import Players from './components/players';
 
 ReactDOM.render(
-	<AddPlayerForm />,
+	<Players />,
 	document.getElementById('application-root')
 );

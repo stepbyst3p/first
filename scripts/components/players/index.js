@@ -6,8 +6,16 @@ export default class Players extends React.Component {
         
 	constructor() {
 		super();	 
-	   	this.state = {players: []};
+	   	
         this.handleNewPlayer = this.handleNewPlayer.bind(this);              
+        this.savePlayers = this.savePlayers.bind(this);              
+
+        if (localStorage.players) {
+            const players = JSON.parse(localStorage.players);
+            this.state = {players:players}
+        } else {
+            this.state = {players: []};
+        }        
 	}
 	
     handleNewPlayer(player) {     
@@ -18,6 +26,11 @@ export default class Players extends React.Component {
         })        
     }
 
+    savePlayers() {
+        const playersJSON = JSON.stringify(this.state.players)
+        localStorage.players = playersJSON;
+    }
+
     render() {    	    	
         return (
         	<div>
@@ -25,6 +38,7 @@ export default class Players extends React.Component {
                 <PlayersForm whenPlayerAdded={this.handleNewPlayer} />
         		<h2>Players:</h2>
                 <List players={this.state.players}/>        		
+                <button onClick={this.savePlayers}>Save</button>
         	</div>
         );
     }    

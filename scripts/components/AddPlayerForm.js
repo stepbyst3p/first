@@ -13,12 +13,12 @@ export default class AddingPlayerForm extends React.Component {
 	handleSubmit(e) {			
     	e.preventDefault();    	    	    	    	    	
     	
-        let newPlayer = {
+        const newPlayer = {
             name: this.state.name,   
             id: Date.now()
         }
         
-        this.setState((prevState) => ({
+        this.setState(prevState => ({
             players: prevState.players.concat(newPlayer),
             name: ''
         }));        
@@ -42,9 +42,7 @@ export default class AddingPlayerForm extends React.Component {
         		<ul id="players-list">    
         			{this.state.players.map(player => (
           			<li key={player.id}>{player.name}</li>
-        			))}
-
-     			  		
+        			))}     			  		
         		</ul>        		
         	</div>
         );

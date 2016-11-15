@@ -13,6 +13,10 @@ export default class PlayersForm extends React.Component {
     handleSubmit(e) {           
         e.preventDefault();     
 
+        if (this.state.name.length == 0) {
+            return
+        }
+
         const newPlayer = {
             name: this.state.name,   
             id: Date.now()

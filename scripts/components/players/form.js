@@ -18,6 +18,8 @@ export default class PlayersForm extends React.Component {
             id: Date.now()
         }
 
+        this.setState({ name: '' })         
+
         this.props.whenPlayerAdded(newPlayer)        
     }
 

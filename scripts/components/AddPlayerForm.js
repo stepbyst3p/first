@@ -3,8 +3,8 @@ import React from 'react'
 
 export default class AddingPlayerForm extends React.Component {
         
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 	 	this.handleInputChange = this.handleInputChange.bind(this);
 	 	this.handleSubmit = this.handleSubmit.bind(this);			   
 	   	this.state = {players: [], name: ''};

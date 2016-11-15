@@ -1,7 +1,7 @@
 import React from 'react'
 import PlayersForm from './form'
 
-export default class AddingPlayerForm extends React.Component {
+export default class Players extends React.Component {
         
 	constructor() {
 		super();	 

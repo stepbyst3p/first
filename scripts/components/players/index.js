@@ -5,11 +5,16 @@ export default class Players extends React.Component {
         
 	constructor() {
 		super();	 
-	   	this.state = {players: [], name: ''};
+	   	this.state = {players: []};
+        this.handleNewPlayer = this.handleNewPlayer.bind(this);              
 	}
 	
-    handleNewPlayer(player) {
-        
+    handleNewPlayer(player) {     
+        this.setState((prevState) => {
+            return {
+                players: prevState.players.concat(player)
+            }
+        })
     }
 
     render() {    	    	

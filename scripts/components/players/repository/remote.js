@@ -12,6 +12,7 @@ export default class RemotePlayerRepository {
 	}
 
 	savePlayer(player) {
-		
+		Axios
+			.post('https://vanya-test.herokuapp.com/api/players', player)				
 	}
 }  

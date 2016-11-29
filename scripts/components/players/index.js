@@ -1,7 +1,7 @@
 import React from 'react'
 import PlayersForm from './form'
 import List from './list'
-import PlayerRepository from './repository/localstorage'
+import PlayerRepository from './repository/remotePlayerRepository'
 
 const loadingStates = {
     loading:'loading',

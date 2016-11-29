@@ -3,22 +3,35 @@ import PlayersForm from './form'
 import List from './list'
 import PlayerRepository from './repository/localstorage'
 
+const loadingStates = {
+    loading:'loading',
+    ready:'ready'
+}
+
 export default class Players extends React.Component {
-        
+    
 	constructor() {
 		super();	 
 	   	
         this.handleNewPlayer = this.handleNewPlayer.bind(this);                      
-        this.playerRepository = new PlayerRepository();
+        this.playerRepository = new PlayerRepository();        
+        this.state = {
+            players:[],
+            loadingState: loadingStates.loading
+        }
 
-        if (localStorage.players) {
-            const players = this.playerRepository.getAllPlayers();
-            this.state = {players:players}
-        } else {
-            this.state = {players: []};
-        }        
-	}
+    }
 	
+    componentDidMount() {
+        this.playerRepository.getAllPlayers()
+            .then(downloadedPlayers => {
+                this.setState({
+                    players:downloadedPlayers,
+                    loadingState:loadingStates.ready
+                })
+            })
+    }
+
     handleNewPlayer(player) {     
         this.playerRepository.savePlayer(player);
         this.setState((prevState) => {            
@@ -26,13 +39,19 @@ export default class Players extends React.Component {
         })                
     }
     
-    render() {    	    	
+    render() {   
+        let playerList;
+        if (this.state.loadingState === loadingStates.ready) {
+            playerList = <List players={this.state.players}/>                               
+        } else {
+            playerList = <div>loading...</div>
+        }        
         return (
         	<div>
         		<h2>Adding Players</h2>        	
                 <PlayersForm whenPlayerAdded={this.handleNewPlayer} />
-        		<h2>Players:</h2>
-                <List players={this.state.players}/>        		                
+        		<h2>Players:</h2>                
+                {playerList}
         	</div>
         );
     }    
